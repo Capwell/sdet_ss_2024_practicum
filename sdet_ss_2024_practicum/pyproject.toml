@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "sdet-ss-2024-practicum"
+version = "0.1.0"
+description = ""
+authors = ["Capwell <proninc@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "sdet_ss_2024_practicum"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
