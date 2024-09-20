@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 
 from .utilits import name_generator
 
@@ -19,6 +20,11 @@ def customer_data(last_name="Иванов", post_code="0001252667"):
 @pytest.fixture
 def driver():
     service = Service(ChromeDriverManager().install())
+    options = Options()
+    options.add_argument('--disable-application-cache')
+    options.add_argument('--headless')
+    options.add_argument("--no-sand box")
+    options.add_argument("--window-size=1920,1080")
     driver = webdriver.Chrome(service=service)
     yield driver
     driver.quit()
