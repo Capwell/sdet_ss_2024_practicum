@@ -5,6 +5,7 @@ description = ""
 authors = ["Capwell <proninc@yandex.ru>"]
 readme = "README.md"
 packages = [{include = "sdet_ss_2024_practicum"}]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.9"
