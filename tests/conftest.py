@@ -1,5 +1,7 @@
 import pytest
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 from .utilits import name_generator
 
@@ -16,6 +18,7 @@ def customer_data(last_name="Иванов", post_code="0001252667"):
 
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome()
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
     yield driver
     driver.quit()

@@ -5,7 +5,6 @@ from .utilits import reverse_sort_table
 from pages.customers_page import CustomerPageLocators
 
 
-
 @allure.epic("Тестирование сортировки клиентов по имени (First Name)")
 class TestFirstNameSort():
 
@@ -42,7 +41,7 @@ class TestFirstNameSort():
         with allure.step("Нажатие кнопки Customers"):
             page.click_customers_button()
 
-        unsorted_table = page.get_table_data()       
+        unsorted_table = page.get_table_data()
 
         with allure.step("Нажатие кнопки firt_name для сортировки"):
             page.click_first_name_sort_link()
