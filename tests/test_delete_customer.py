@@ -1,12 +1,14 @@
 import allure
 import pytest
 
-from .utilits import choose_average_length_name
-from pages.customers_page import CustomerPageLocators
+from utilits import choose_average_length_name
+from pages.delete_customers_page import DeleteCustomerPage
 
 
-@allure.epic("Удаление клиента с длиной имени, близкой с среднеарифметическому в списке клиентов")
-class TestDeleteByName():
+@allure.epic(
+    "Удаление клиента с длиной имени, близкой с среднеарифметическому в списке клиентов"
+)
+class TestDeleteByName:
 
     link = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager"
 
@@ -31,10 +33,10 @@ class TestDeleteByName():
             - При клике на кнопку Delete клиент усчезает из списка
         """
     )
-    def test_delete_custumer_with_name_length_closest_to_average(self, driver):
+    def test_delete_customer_with_name_length_closest_to_average(self, driver):
 
         with allure.step(f"Открытие страницы {self.link}"):
-            page = CustomerPageLocators(driver, self.link)
+            page = DeleteCustomerPage(driver, self.link)
             page.open_link()
 
         with allure.step("Нажатие кнопки Customers"):

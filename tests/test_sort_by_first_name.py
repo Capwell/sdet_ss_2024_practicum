@@ -1,12 +1,12 @@
 import allure
 import pytest
 
-from .utilits import reverse_sort_table
-from pages.customers_page import CustomerPageLocators
+from utilits import reverse_sort_table
+from pages.sort_customers_page import CustomerFrstNameSortPage
 
 
 @allure.epic("Тестирование сортировки клиентов по имени (First Name)")
-class TestFirstNameSort():
+class TestFirstNameSort:
 
     link = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager"
 
@@ -35,7 +35,7 @@ class TestFirstNameSort():
     def test_first_name_sort_positive(self, driver):
 
         with allure.step(f"Открытие страницы {self.link}"):
-            page = CustomerPageLocators(driver, self.link)
+            page = CustomerFrstNameSortPage(driver, self.link)
             page.open_link()
 
         with allure.step("Нажатие кнопки Customers"):
@@ -48,5 +48,7 @@ class TestFirstNameSort():
 
         sorted_data = page.get_table_data()
 
-        with allure.step("Проверка работоспосбности сортировки"):
-            assert reverse_sort_table(unsorted_table) == sorted_data
+        with allure.step("Проверка работоспособности сортировки"):
+            assert (
+                reverse_sort_table(unsorted_table) == sorted_data
+            ), "Порядок сортированных элементов не оответсвует ожидаемому"
